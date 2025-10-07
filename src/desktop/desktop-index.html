@@ -1,0 +1,496 @@
+<!--
+SpectraTact - Desktop Application Management
+Copyright (c) 2025 dhaneshbb
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <title>SpectraTact</title>
+    <link rel="icon" type="image/png" href="assets/icons/icon.png">
+    <link rel="stylesheet" href="desktop-styles.css">
+</head>
+<body>
+    <div class="app-container" data-theme="dark">
+        <!-- Custom Title Bar -->
+        <div class="title-bar">
+            <div class="title-bar-left">
+                <div class="app-icon">
+                    <img src="assets/icons/icon.png" alt="SpectraTact" width="16" height="16" style="border-radius: 3px;">
+                </div>
+                <span class="app-title">SpectraTact</span>
+            </div>
+            <div class="title-bar-center">
+                <div class="connection-status" id="connection-status">
+                    <div class="status-indicator" id="status-indicator"></div>
+                    <span class="status-text" id="status-text">Connecting...</span>
+                </div>
+            </div>
+            <div class="title-bar-controls">
+                <button class="title-button minimize-btn" id="minimize-btn">
+                    <svg width="12" height="12" viewBox="0 0 12 12"><path d="M0 6h12" stroke="currentColor" stroke-width="1"/></svg>
+                </button>
+                <button class="title-button maximize-btn" id="maximize-btn">
+                    <svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+                </button>
+                <button class="title-button close-btn" id="close-btn">
+                    <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <button class="toolbar-btn primary" id="start-apps-btn" title="Start All Applications">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <span>Start Apps</span>
+                </button>
+                <button class="toolbar-btn danger" id="close-all-btn" title="Close All Applications">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <span>Close All</span>
+                </button>
+                <button class="toolbar-btn success" id="reopen-all-btn" title="Reopen All Applications">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                    </svg>
+                    <span>Reopen All</span>
+                </button>
+                <button class="toolbar-btn" id="arrange-grid-btn" title="Arrange Windows in Grid">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/>
+                    </svg>
+                    <span>Arrange</span>
+                </button>
+                <button class="toolbar-btn" id="layout-mode-btn" title="Toggle Layout Mode (Grid/Side-by-Side)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 3h18v5H3zM3 10h8v11H3zM13 10h8v11h-8z"/>
+                    </svg>
+                    <span id="layout-mode-text">Grid</span>
+                </button>
+                <button class="toolbar-btn" id="minimize-all-btn" title="Minimize All Windows">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 14h16v2H4zM4 8h16v2H4z"/>
+                    </svg>
+                    <span>Minimize</span>
+                </button>
+                <!-- Load Apps button removed - panel is now default -->
+                <button class="toolbar-btn" id="unload-all-btn" title="Unload All Applications">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <span>Unload All</span>
+                </button>
+            </div>
+            <div class="toolbar-right">
+                <button class="toolbar-btn" id="refresh-apps-btn" title="Refresh All Applications (Ctrl+R)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                    </svg>
+                </button>
+                <button class="toolbar-btn" id="theme-toggle-btn" title="Toggle Theme">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path class="sun-icon" d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                        <path class="moon-icon" style="display: none;" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+                    </svg>
+                </button>
+                <button class="toolbar-btn" id="help-btn" title="Help & Documentation">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                    </svg>
+                </button>
+                <div class="toolbar-divider"></div>
+                <div class="dropdown-container">
+                    <button class="toolbar-btn menu-btn menu-btn-dropdown" id="menu-btn-dropdown" title="More Options">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                        <span>Menu</span>
+                    </button>
+
+                    <!-- Three-Dot Dropdown Menu -->
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <div class="dropdown-header">
+                            <span class="dropdown-title">Options</span>
+                            <button class="dropdown-close" id="dropdown-close">×</button>
+                        </div>
+
+                        <div class="dropdown-content">
+                            <div class="menu-section">
+                                <div class="menu-section-title">Application</div>
+                                <div class="menu-item" data-action="open-settings">
+                                    <div class="menu-item-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="menu-item-content">
+                                        <span class="menu-item-title">Settings</span>
+                                        <span class="menu-item-desc">Open settings.yml file</span>
+                                    </div>
+                                </div>
+
+                                <div class="menu-item" data-action="open-apps-config">
+                                    <div class="menu-item-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A0.5,0.5 0 0,0 7,13.5A0.5,0.5 0 0,0 7.5,14A0.5,0.5 0 0,0 8,13.5A0.5,0.5 0 0,0 7.5,13M16.5,13A0.5,0.5 0 0,0 16,13.5A0.5,0.5 0 0,0 16.5,14A0.5,0.5 0 0,0 17,13.5A0.5,0.5 0 0,0 16.5,13Z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="menu-item-content">
+                                        <span class="menu-item-title">Loaded Apps Config</span>
+                                        <span class="menu-item-desc">Open loaded_apps.yml file</span>
+                                    </div>
+                                </div>
+
+                                <div class="menu-item" data-action="open-load-apps-config">
+                                    <div class="menu-item-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="menu-item-content">
+                                        <span class="menu-item-title">Load Apps Config</span>
+                                        <span class="menu-item-desc">Open load_apps.yml file</span>
+                                    </div>
+                                </div>
+
+                                <div class="menu-item" data-action="reload-config">
+                                    <div class="menu-item-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="menu-item-content">
+                                        <span class="menu-item-title">Reload Configuration</span>
+                                        <span class="menu-item-desc">Reload settings and apps</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dropdown-divider"></div>
+
+                            <div class="menu-section">
+                                <div class="menu-section-title">Help</div>
+                                <div class="menu-item" data-action="about">
+                                    <div class="menu-item-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="menu-item-content">
+                                        <span class="menu-item-title">About</span>
+                                        <span class="menu-item-desc">Version and app information</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel - App Selection -->
+            <div class="left-panel" id="left-panel">
+                <div class="panel-header">
+                    <h3>Applications</h3>
+                    <div class="selection-actions">
+                        <button class="text-btn" id="select-all-btn">Select All</button>
+                        <button class="text-btn" id="clear-selection-btn">Clear</button>
+                        <button class="panel-toggle-btn" id="panel-toggle-btn" title="Close/Expand Panel">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="toggle-icon">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="app-grid" id="app-grid">
+                    <!-- App cards will be dynamically generated based on config priority -->
+                </div>
+            </div>
+
+            <!-- Collapsed Panel Header -->
+            <div class="collapsed-panel-header" id="collapsed-panel-header" style="display: none;">
+                <button class="collapsed-expand-btn" id="collapsed-expand-btn" title="Expand Applications">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                    </svg>
+                    <span>Apps</span>
+                </button>
+            </div>
+
+            <!-- Center Area - Prompt Management -->
+            <div class="center-panel">
+                <!-- Load Apps Pane (Default Panel) -->
+                <div class="load-apps-pane" id="load-apps-pane" style="display: block;">
+                    <div class="pane-header">
+                        <h3>Load Apps</h3>
+                        <!-- Close button removed - panel is now permanent -->
+                    </div>
+                    <div class="load-apps-content">
+                        <!-- Profile Filter Controls -->
+                        <div class="profile-filter-section">
+                            <div class="filter-controls">
+                                <select id="profile-filter-select" class="profile-filter-dropdown">
+                                    <option value="">-- Select by Profile --</option>
+                                </select>
+                                <button class="toolbar-btn" id="load-all-for-profile-btn" disabled title="Load Selected Profile">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                    </svg>
+                                    <span>Load Selected</span>
+                                </button>
+                                <button class="toolbar-btn" id="unload-selected-btn" title="Unload Selected Apps">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                    </svg>
+                                    <span>Unload Selected</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="section-divider"></div>
+
+                        <!-- Individual App Selection -->
+                        <div class="apps-table-container">
+                            <h4>Individual App Selection</h4>
+                            <p class="instruction-text">Click on user profile chips below to load/unload individual apps</p>
+                            <table class="apps-table" id="apps-table">
+                                <thead>
+                                    <tr>
+                                        <th>App</th>
+                                        <th>Profile
+                                    </tr>
+                                </thead>
+                                <tbody id="apps-table-body">
+                                    <!-- Table content will be populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prompt section removed - functionality moved to backup -->
+
+                <!-- Status Section -->
+                <div class="status-section">
+                    <div class="status-display" id="status-display">
+                        Ready to start applications
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="context-menu" id="context-menu">
+        <div class="menu-item" data-action="close-all" title="Close All Applications">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+            Close All Applications
+        </div>
+        <div class="menu-item" data-action="reopen-all" title="Restart All Applications">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+            </svg>
+            Restart All Applications
+        </div>
+        <div class="menu-divider"></div>
+        <div class="menu-item" data-action="settings" title="Open Preferences">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+            </svg>
+            Preferences
+        </div>
+        <div class="menu-item" data-action="about" title="About SpectraTact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+            About
+        </div>
+    </div>
+
+    <!-- First-Time Setup Welcome Modal -->
+    <div class="onboarding-modal" id="onboarding-modal" style="display: none;">
+        <div class="onboarding-content">
+            <div class="onboarding-header">
+                <div class="onboarding-icon">
+                    <img src="assets/icons/icon.png" alt="SpectraTact" width="48" height="48" style="border-radius: 8px;">
+                </div>
+                <h2>Welcome to SpectraTact!</h2>
+                <p>Let's get you set up in just a few steps</p>
+            </div>
+
+            <div class="onboarding-body">
+                <div class="onboarding-step active" data-step="1">
+                    <div class="step-content">
+                        <h3>Step 1: Configure Your Settings</h3>
+                        <p>First, let's set up your application preferences:</p>
+                        <div class="setup-actions">
+                            <button class="setup-btn primary" id="open-settings-setup">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+                                </svg>
+                                Open Settings (settings.yml)
+                            </button>
+                            <button class="setup-btn secondary" id="next-step-1">Skip for Now</button>
+                        </div>
+                        <div class="setup-note">
+                            <strong>Note:</strong> Configure window grid layout, display preferences, and timing settings.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onboarding-step" data-step="2">
+                    <div class="step-content">
+                        <h3>Step 2: Add Your Applications</h3>
+                        <p>Configure which platforms you want to manage:</p>
+                        <div class="setup-actions">
+                            <button class="setup-btn primary" id="open-apps-setup">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A0.5,0.5 0 0,0 7,13.5A0.5,0.5 0 0,0 7.5,14A0.5,0.5 0 0,0 8,13.5A0.5,0.5 0 0,0 7.5,13M16.5,13A0.5,0.5 0 0,0 16,13.5A0.5,0.5 0 0,0 16.5,14A0.5,0.5 0 0,0 17,13.5A0.5,0.5 0 0,0 16.5,13Z"/>
+                                </svg>
+                                Configure Apps (load_apps.yml)
+                            </button>
+                            <button class="setup-btn secondary" id="next-step-2">Skip for Now</button>
+                        </div>
+                        <div class="setup-note">
+                            <strong>Note:</strong> Add shortcuts for ChatGPT, Claude, Gemini, and other platforms you use.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onboarding-step" data-step="3">
+                    <div class="step-content">
+                        <h3>Step 3: Access Settings Anytime</h3>
+                        <p>You can always access configuration files through the menu:</p>
+                        <div class="menu-pointer">
+                            <div class="pointer-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                            <div class="pointer-text">
+                                Click the <strong>three-dot menu (⋮)</strong> in the top-right toolbar
+                            </div>
+                        </div>
+                        <div class="menu-preview">
+                            <div class="mini-menu">
+                                <div class="mini-menu-item">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+                                    </svg>
+                                    Settings
+                                </div>
+                                <div class="mini-menu-item">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A0.5,0.5 0 0,0 7,13.5A0.5,0.5 0 0,0 7.5,14A0.5,0.5 0 0,0 8,13.5A0.5,0.5 0 0,0 7.5,13M16.5,13A0.5,0.5 0 0,0 16,13.5A0.5,0.5 0 0,0 16.5,14A0.5,0.5 0 0,0 17,13.5A0.5,0.5 0 0,0 16.5,13Z"/>
+                                    </svg>
+                                    Apps Config
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setup-actions">
+                            <button class="setup-btn primary" id="complete-setup">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                                Got it! Let's start
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="onboarding-footer">
+                <div class="step-indicators">
+                    <div class="step-indicator active" data-step="1"></div>
+                    <div class="step-indicator" data-step="2"></div>
+                    <div class="step-indicator" data-step="3"></div>
+                </div>
+                <button class="onboarding-skip" id="skip-onboarding">Skip Setup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal" id="help-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>SpectraTact Help</h2>
+                <button class="modal-close" id="help-close-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h3>Getting Started</h3>
+                    <ol>
+                        <li>Click <strong>Start Apps</strong> to launch all applications</li>
+                        <li>Use window management controls to arrange applications</li>
+                        <li>Switch between different app profiles using Load Apps panel</li>
+                        <li>Use keyboard shortcuts for quick actions</li>
+                    </ol>
+                </div>
+
+                <div class="help-section">
+                    <h3>Window Management</h3>
+                    <ul>
+                        <li><strong>Arrange:</strong> Organize windows in a grid layout</li>
+                        <li><strong>Minimize:</strong> Minimize all application windows</li>
+                        <li><strong>Refresh:</strong> Update the list of active applications</li>
+                    </ul>
+                </div>
+
+
+                <div class="help-section">
+                    <h3>Keyboard Shortcuts</h3>
+                    <ul>
+                        <li><strong>Ctrl+S:</strong> Start all applications</li>
+                        <li><strong>Ctrl+R:</strong> Refresh app</li>
+                        <li><strong>Ctrl+A:</strong> Select all applications</li>
+                        <li><strong>Ctrl+D:</strong> Clear application selection</li>
+                        <li><strong>Ctrl+G:</strong> Arrange windows in grid layout</li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3>Tips</h3>
+                    <ul>
+                        <li>Use the theme toggle to switch between light and dark modes</li>
+                        <li>The status indicator shows connection health</li>
+                        <li>Right-click the menu button for additional options</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="desktop-app.js"></script>
+</body>
+</html>

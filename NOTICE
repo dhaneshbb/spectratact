@@ -1,0 +1,99 @@
+NOTICE
+
+SpectraTact - Desktop Application Management
+Copyright (c) 2025 dhaneshbb
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+================================================================================
+
+THIRD-PARTY SOFTWARE COMPONENTS
+
+This software includes the following third-party components.
+
+================================================================================
+
+RUNTIME DEPENDENCIES (Distributed with Application)
+
+Python Backend Dependencies:
+----------------------------
+
+1. psutil 7.1.0
+   License: BSD-3-Clause (Modified BSD License)
+   Author: Giampaolo Rodola
+   Repository: https://github.com/giampaolo/psutil
+   Description: Cross-platform library for process and system monitoring
+
+2. PyYAML 6.0.3
+   License: MIT License
+   Author: Kirill Simonov
+   Repository: https://pyyaml.org/
+   Description: YAML parser and emitter for Python
+
+3. pywin32 311
+   License: Python Software Foundation License
+   Author: Mark Hammond (et al)
+   Repository: https://github.com/mhammond/pywin32
+   Description: Python for Windows Extensions
+
+Node.js/Electron Runtime Dependencies:
+---------------------------------------
+
+4. js-yaml 4.1.0
+   License: MIT License
+   Repository: https://github.com/nodeca/js-yaml
+   Description: JavaScript YAML parser and dumper
+
+5. argparse 2.0.1
+   License: Python-2.0 (Python License, version 2)
+   Repository: https://github.com/nodeca/argparse
+   Description: Command-line argument parser for Node.js
+
+================================================================================
+
+DEVELOPMENT DEPENDENCIES (Not Distributed)
+
+Development tools used for building and testing are NOT distributed with the
+application and therefore do not affect the license of the distributed software.
+
+Python Development Tools:
+- pytest (MIT)
+- pytest-cov (MIT)
+- black (MIT)
+- flake8 (MIT)
+
+Node.js Development Tools:
+- electron (MIT) - Framework for building desktop applications
+- electron-builder (MIT) - Build and packaging tool
+- jest (MIT) - JavaScript testing framework
+- electron-reload (MIT) - Development auto-reload
+
+Total: 534 development packages
+
+================================================================================
+
+TRADEMARKS AND DEMONSTRATION MATERIALS
+
+Screenshots and demonstration materials in this repository show third-party
+applications and web services for demonstration purposes only. All trademarks,
+service marks, trade names, product names, and logos appearing in screenshots
+are the property of their respective owners. The appearance of third-party
+applications in demonstration materials does not imply endorsement, sponsorship,
+or affiliation with those products or their owners.
+
+================================================================================
+
+For detailed license information, see:
+- LICENSE file for GPL-3.0 full text
+- THIRD_PARTY_LICENSES.txt for dependency license details

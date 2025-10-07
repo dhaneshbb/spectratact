@@ -1,0 +1,208 @@
+# SpectraTact Loaded Apps Configuration Example
+# Currently active application profiles
+#
+# Location: config/loaded_apps.yml
+# Format: YAML (use spaces for indentation, NOT tabs)
+#
+# PURPOSE:
+# This file contains the ACTIVE profiles that will be launched and managed by SpectraTact.
+# Only applications listed here are launched when you click "Start Apps".
+#
+# NOTE: This works with ANY Windows application (not just browsers):
+#       - Web browsers (Chrome, Edge, etc.)
+#       - Desktop applications (Slack, Discord, Zoom, VS Code, etc.)
+#       - Text editors (Notepad++, Sublime, etc.)
+#       - IDEs, terminals, productivity tools, and more
+#       Applications are detected by keywords and launched via .lnk shortcuts
+#
+# WORKFLOW:
+# 1. Profiles are loaded from load_apps.yml (master list)
+# 2. Selected profiles are added to this file (loaded_apps.yml)
+# 3. Only profiles in this file are launched and arranged
+# 4. Profiles can be loaded/unloaded via GUI or manual editing
+#
+# MANAGEMENT:
+# - Load profiles: GUI → Load Apps panel → Select → Load Selected
+# - Unload profiles: GUI → Apps panel → Right-click → Unload
+# - Manual editing: Add/remove entries below
+#
+#================================================================================
+# ACTIVE APPLICATIONS
+#================================================================================
+
+apps: []
+
+#================================================================================
+# PRIORITY SYSTEM EXPLAINED
+#================================================================================
+
+# WHAT IS PRIORITY?
+# Priority determines the order windows are arranged on screen.
+# Lower priority number = Higher precedence = Arranged first/top-left
+
+# PRIORITY RULES:
+# 1. Each priority must be UNIQUE across all loaded apps
+# 2. Priorities are automatically corrected if conflicts detected
+# 3. Priority determines position in grid or side-by-side layout
+
+# GRID LAYOUT PRIORITY MAPPING:
+# 5 columns × 2 rows = 10 windows
+#
+# Priority 1  → Row 1, Col 1 (top-left)
+# Priority 2  → Row 1, Col 2
+# Priority 3  → Row 1, Col 3
+# Priority 4  → Row 1, Col 4
+# Priority 5  → Row 1, Col 5 (top-right)
+# Priority 6  → Row 2, Col 1
+# Priority 7  → Row 2, Col 2
+# Priority 8  → Row 2, Col 3
+# Priority 9  → Row 2, Col 4
+# Priority 10 → Row 2, Col 5 (bottom-right)
+
+# SIDE-BY-SIDE LAYOUT PRIORITY:
+# Priority 1 → Left/top position
+# Priority 2 → Right/bottom position
+# Priority 3+ → Additional windows (if max_windows allows)
+
+# UPDATING PRIORITIES:
+# Method 1 (GUI): Drag and drop apps in the UI to reorder
+# Method 2 (Manual): Edit priority values here and reload config
+# Method 3 (Auto): System auto-corrects conflicts
+
+#================================================================================
+# MANAGING LOADED APPS
+#================================================================================
+
+# LOADING PROFILES (Adding to this file):
+# 1. Via GUI:
+#    - Open "Load Apps" panel
+#    - Select desired profiles
+#    - Click "Load Selected"
+#    - Profiles automatically added here with unique priorities
+#
+# 2. Manual:
+#    - Copy profile structure from load_apps.yml
+#    - Paste here under 'apps:'
+#    - Assign unique priority
+#    - Set enabled: true
+#    - Save and reload config
+
+# UNLOADING PROFILES (Removing from this file):
+# 1. Via GUI:
+#    - Right-click app in Apps panel
+#    - Select "Unload Profile"
+#    - Optionally close windows
+#
+# 2. Manual:
+#    - Remove entry from this file
+#    - Save and reload config
+#    - Manually close windows if needed
+
+# REORDERING PROFILES:
+# 1. Via GUI:
+#    - Drag apps up/down in Apps panel
+#    - Priorities update automatically
+#
+# 2. Manual:
+#    - Change priority numbers
+#    - Ensure all priorities are unique
+#    - Save and reload config
+
+# ENABLING/DISABLING PROFILES:
+# 1. Change enabled: true/false
+# 2. Save and reload config
+# 3. Disabled profiles remain in file but won't launch
+
+#================================================================================
+# STARTUP BEHAVIOR
+#================================================================================
+
+# When you click "Start Apps":
+# 1. All profiles with enabled: true are launched
+# 2. System waits for windows to load (timing.load_wait from settings.yml)
+# 3. Windows are detected using keywords
+# 4. Windows are arranged based on priority order
+# 5. Layout applied (grid or side-by-side from settings.yml)
+
+# EXPECTED RESULTS (5×2 Grid):
+# - 10 windows arranged in 5 columns, 2 rows
+# - Priority 1 in top-left corner
+# - Priority 10 in bottom-right corner
+# - Windows sized to fit grid dimensions
+# - Optionally hidden from taskbar (settings.yml: taskbar.hide_apps)
+
+#================================================================================
+# EMPTY CONFIGURATION
+#================================================================================
+
+# If no apps are loaded yet, the file will contain:
+# apps: []
+#
+# This is the default state for a new installation.
+# Load profiles via GUI or add entries manually to populate this list.
+
+#================================================================================
+# TIPS AND BEST PRACTICES
+#================================================================================
+
+# 1. PRIORITY MANAGEMENT:
+#    - Keep priorities sequential (1, 2, 3, 4...)
+#    - Avoid gaps (don't skip numbers)
+#    - Most important apps = lowest priority numbers
+#    - Use GUI drag-and-drop to avoid manual priority management
+
+# 2. PROFILE SELECTION:
+#    - Only load profiles you actively use
+#    - Unload unused profiles to reduce clutter
+#    - Match profiles to your current workflow
+#    - Different profiles for different work contexts
+
+# 3. PERFORMANCE:
+#    - Fewer apps = faster startup
+#    - Disable unused profiles instead of unloading
+#    - Keep total apps ≤ grid capacity (cols × rows)
+#    - More apps than grid spaces will overflow or be skipped
+
+# 4. MAINTENANCE:
+#    - Review loaded apps periodically
+#    - Remove obsolete profiles
+#    - Update priorities for workflow changes
+#    - Test new configurations with few apps first
+
+# 5. BACKUP:
+#    - Keep backup copy before major changes
+#    - This file regenerates from load_apps.yml
+#    - Safe to delete and rebuild via GUI
+
+#================================================================================
+# TROUBLESHOOTING
+#================================================================================
+
+# Issue: App not launching
+# Solution: Check enabled: true
+#          Verify app_path exists
+#          Test .lnk file manually
+#          Check file permissions
+
+# Issue: Wrong window arrangement
+# Solution: Verify priority numbers are unique
+#          Check priority order (lower = first)
+#          Reload config after changes
+#          Check grid dimensions in settings.yml
+
+# Issue: Priority conflicts
+# Solution: System auto-corrects duplicates
+#          Reload config to apply fixes
+#          Use sequential priorities (1, 2, 3...)
+
+# Issue: Too many apps for grid
+# Solution: Reduce loaded apps
+#          Increase grid size (settings.yml)
+#          Enable multi-display mode
+#          Use side-by-side layout
+
+# Issue: Apps load but not arranged
+# Solution: Check keywords match window titles
+#          Verify target_detection settings
+#          Increase timing.load_wait
+#          Check window detection logs

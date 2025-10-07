@@ -1,0 +1,305 @@
+# SpectraTact Settings Configuration Example
+# This file contains all core application settings and behavior configuration
+#
+# Location: config/settings.yml
+# Format: YAML (use spaces for indentation, NOT tabs)
+# IMPORTANT: Restart the application after making changes to this file
+#
+# DISCLAIMER:
+# Application names and executables mentioned in this file (Chrome, VS Code, Slack,
+# Discord, etc.) are trademarks of their respective owners. This configuration file
+# is provided as an example only. The mention of third-party applications does not
+# imply endorsement, sponsorship, or affiliation with those products or their owners.
+# Users are responsible for ensuring they have proper licenses for any applications
+# they configure.
+
+#================================================================================
+# APPLICATION INFORMATION
+#================================================================================
+
+# Application metadata - Basic information about the application
+app:
+  name: "SpectraTact"                 # Display name for the application
+  version: "0.1.0"                    # Current application version
+
+#================================================================================
+# WINDOW MANAGEMENT SETTINGS
+#================================================================================
+
+# Window Management Settings - Controls how application windows are arranged and managed
+window:
+  # Layout mode determines how windows are organized on screen
+  # Options: "grid" | "side_by_side"
+  layout_mode: grid
+
+  #--------------------------------------------------------------------------------
+  # Grid Layout Configuration
+  #--------------------------------------------------------------------------------
+  grid:
+    # Grid layout arranges windows in a rectangular grid pattern
+    # Total windows displayed = cols × rows
+    cols: 5                           # Number of columns (1-6 recommended)
+    rows: 2                           # Number of rows (1-4 recommended)
+
+    # Common grid configurations:
+    # 2×1 = 2 windows side by side
+    # 2×2 = 4 windows in square grid
+    # 3×1 = 3 windows horizontal strip
+    # 3×2 = 6 windows standard grid
+    # 4×2 = 8 windows wide grid
+    # 5×2 = 10 windows (default)
+
+  #--------------------------------------------------------------------------------
+  # Side-by-Side Layout Configuration
+  #--------------------------------------------------------------------------------
+  side_by_side:
+    # Side-by-side layout splits screen between applications
+    orientation: horizontal           # "horizontal" (left/right) | "vertical" (top/bottom)
+    split_ratio: 0.5                  # Screen division ratio
+                                      # 0.5 = 50/50 split
+                                      # 0.3 = 30/70 split (left/top gets 30%)
+                                      # 0.7 = 70/30 split (left/top gets 70%)
+    max_windows: 9                    # Maximum windows to manage (2-4 recommended)
+    max_windows_per_display: 9        # Max windows per monitor in multi-display setups
+
+  #--------------------------------------------------------------------------------
+  # Display and Monitor Configuration
+  #--------------------------------------------------------------------------------
+  display:
+    # Multi-monitor configuration and display selection
+    auto_select: false                # Let system choose optimal display automatically
+
+    # Target display selection:
+    # Single monitor: "1", "2", "3" (monitor number)
+    # Multiple monitors: "1,2", "2,3", "1,2,3" (comma-separated)
+    # Auto selection: "auto"
+    preferred_display: "2"
+
+    use_work_area: true               # Respect taskbar/dock areas
+                                      # true = don't overlap taskbar
+                                      # false = use full screen
+
+    # Multi-monitor window distribution behavior
+    # How to use multiple monitors when preferred_display has multiple displays
+    multi_display_mode: primary_overflow
+    # Options:
+    # "span" - Stretch windows across all specified monitors
+    #          (windows can span display boundaries)
+    # "distribute" - Evenly spread windows across monitors
+    #               (balanced distribution)
+    # "primary_overflow" - Fill primary display first, then overflow to secondary
+    #                     (prioritize main display)
+
+  #--------------------------------------------------------------------------------
+  # Window Operation Timing
+  #--------------------------------------------------------------------------------
+  timing:
+    # Fine-tune timing for window operations (all values in seconds)
+    launch_delay: 0.1                 # Pause between launching each application
+                                      # Lower = faster startup, may overwhelm system
+                                      # Higher = more reliable, better compatibility
+
+    load_wait: 4.0                    # Wait time for apps to fully load before arranging
+                                      # Lower = faster but windows may not be ready
+                                      # Higher = more reliable window detection
+
+    action_delay: 0.1                 # Pause between individual window management actions
+                                      # Lower = faster operations
+                                      # Higher = more reliable, smoother animations
+
+#================================================================================
+# USER INTERFACE CONFIGURATION
+#================================================================================
+
+# User Interface Configuration - Controls the appearance of the management interface
+gui:
+  #--------------------------------------------------------------------------------
+  # Visual Theme and Colors
+  #--------------------------------------------------------------------------------
+  theme:
+    # Color palette (use hex color codes like #1e1e1e)
+    # Customize to match your preferred color scheme
+    bg_primary: "#1e1e1e"             # Main background color (dark theme default)
+    bg_secondary: "#2d2d2d"           # Secondary panels and cards background
+    bg_input: "#404040"               # Input fields and form backgrounds
+    fg_primary: "#ffffff"             # Primary text color (high contrast)
+    fg_secondary: "#cccccc"           # Secondary text (labels, descriptions)
+    accent_color: "#0078d4"           # Interactive elements (buttons, links)
+    success_color: "#4CAF50"          # Success messages and positive indicators
+    warning_color: "#FF9800"          # Warning messages and caution indicators
+    error_color: "#f44336"            # Error messages and failure indicators
+
+  #--------------------------------------------------------------------------------
+  # Application Window Properties
+  #--------------------------------------------------------------------------------
+  window:
+    width: 1000                       # Window width in pixels
+    height: 700                       # Window height in pixels
+    always_on_top: true               # Keep window above other applications
+                                      # true = recommended for monitoring
+                                      # false = normal window behavior
+    resizable: true                   # Allow user to resize the window
+
+  #--------------------------------------------------------------------------------
+  # Typography and Font Settings
+  #--------------------------------------------------------------------------------
+  fonts:
+    # Format: [font_family, size, weight (optional)]
+    title: ["Segoe UI", 16, "bold"]   # Headers and section titles
+    normal: ["Segoe UI", 11]          # Regular body text and UI elements
+    small: ["Segoe UI", 9]            # Fine print and secondary information
+    button: ["Segoe UI", 10]          # Button labels and interactive text
+
+#================================================================================
+# SECURITY CONFIGURATION
+#================================================================================
+
+# Security Configuration - Controls application access and safety features
+security:
+  #--------------------------------------------------------------------------------
+  # Application Access Control
+  #--------------------------------------------------------------------------------
+  app_access:
+    allow_unknown_apps: false         # Only manage applications defined in config files
+                                      # false = safer, recommended
+                                      # true = manage any detected application
+
+  #--------------------------------------------------------------------------------
+  # System Integration Permissions
+  #--------------------------------------------------------------------------------
+  system:
+    window_management: true           # Enable system-level window positioning and control
+                                      # Required for core functionality
+
+#================================================================================
+# SYSTEM INTEGRATION SETTINGS
+#================================================================================
+
+#--------------------------------------------------------------------------------
+# Taskbar Management
+#--------------------------------------------------------------------------------
+taskbar:
+  hide_apps: true                     # Hide managed applications from Windows taskbar
+                                      # true = cleaner workspace, less clutter
+                                      # false = apps appear in taskbar normally
+
+#--------------------------------------------------------------------------------
+# Application Detection and Security
+#--------------------------------------------------------------------------------
+# SECURITY FEATURE: Restricts management to specific trusted applications
+# NOTE: Despite the name "target_detection", this works for ANY desktop application
+#       (browsers, text editors, communication apps, IDEs, productivity tools, etc.)
+target_detection:
+  target_only: true           # Only manage applications in the valid_executables list
+                                      # true = RECOMMENDED for security (whitelist approach)
+                                      # false = manage any application (less secure, more flexible)
+
+  # Allowed application executables (only used when target_only = true)
+  # Add ANY Windows application executable you want to manage
+  # SECURITY: Only add applications you trust and use regularly
+  valid_executables:
+    #  - "chrome.exe"                   # Browser example
+
+    # Desktop applications (uncomment and add as needed):
+    # - "Code.exe"                    # Visual Studio Code
+    # - "slack.exe"                   # Slack communication
+    # - "discord.exe"                 # Discord
+    # - "obsidian.exe"                # Obsidian notes
+    # - "cmd.exe"                     # Command Prompt
+    # - "powershell.exe"              # PowerShell
+
+    # Additional browsers (uncomment as needed):
+    # - "edge.exe"                    # Microsoft Edge (legacy)
+    # - "msedge.exe"                  # Microsoft Edge (Chromium-based)
+    # - "brave.exe"                   # Brave Browser
+    # - "opera.exe"                   # Opera Browser
+    # - "vivaldi.exe"                 # Vivaldi Browser
+
+#================================================================================
+# COMMUNICATION SETTINGS
+#================================================================================
+
+# Internal Communication Settings - Performance and timing configuration
+# Advanced settings - modify with caution
+communication:
+  cache_ttl: 1000                     # Cache lifetime in milliseconds
+                                      # Lower = more CPU, more responsive
+                                      # Higher = less CPU, less responsive
+
+  #--------------------------------------------------------------------------------
+  # Operation Timeout Limits
+  #--------------------------------------------------------------------------------
+  # Timeout limits prevent hanging on unresponsive operations
+  timeouts:
+    default: 8000                     # Standard timeout for most operations (ms)
+    start_apps: 25000                 # Extended timeout for app startup (apps need time to launch)
+    refresh_all_pages: 15000          # Timeout for page refresh (Ctrl+R to all windows)
+    websocket_connection: 2           # WebSocket connection timeout (seconds)
+    subprocess: 5                     # Python subprocess communication timeout (seconds)
+    electron_bridge: 25               # Frontend-backend communication timeout (seconds)
+
+  refresh_delay: 300                  # Cooldown period after refresh operations (ms)
+
+#================================================================================
+# PERFORMANCE SETTINGS
+#================================================================================
+
+# Performance Settings - Fine-tune responsiveness and resource usage
+# Adjust these settings based on your hardware and preferences
+performance:
+  #--------------------------------------------------------------------------------
+  # Backend Cache Settings
+  #--------------------------------------------------------------------------------
+  backend_cache:
+    enabled: true                     # Enable backend response caching (recommended)
+    ttl: 1500                         # Cache time-to-live in milliseconds (1500ms = 1.5s)
+                                      # Lower = more responsive, higher CPU usage
+                                      # Higher = less CPU usage, may miss quick changes
+    max_age: 3000                     # Maximum cache age before forced refresh (ms)
+                                      # Ensures window state refreshes periodically
+
+  #--------------------------------------------------------------------------------
+  # Frontend Cache Settings
+  #--------------------------------------------------------------------------------
+  frontend_cache:
+    enabled: true                     # Enable frontend response caching (recommended)
+    ttl: 1000                         # Cache time-to-live in milliseconds (1s)
+                                      # How long frontend keeps cached responses
+    max_entries: 15                   # Maximum cached responses (LRU eviction)
+                                      # Higher = more memory, better cache hits
+
+  #--------------------------------------------------------------------------------
+  # UI Update Settings
+  #--------------------------------------------------------------------------------
+  ui_updates:
+    optimistic_updates: true          # Enable instant UI updates before backend confirms
+                                      # true = 0ms perceived latency, feels instant
+                                      # false = wait for backend, slight delay but always accurate
+
+    polling_interval: 3000            # Background status refresh interval (ms)
+                                      # Lower = more responsive, higher resource usage
+                                      # Higher = less responsive, lower CPU/battery usage
+
+    immediate_refresh_delay: 50       # Delay before syncing with backend after operation (ms)
+                                      # 0 = instant sync, higher = let backend settle first
+
+  #--------------------------------------------------------------------------------
+  # Window Operation Delays
+  #--------------------------------------------------------------------------------
+  window_operations:
+    minimize_delay: 50                # Delay between minimize operations (ms)
+                                      # 0 = fastest, may overwhelm slower systems
+                                      # Higher = smoother, better compatibility
+
+    restore_delay: 50                 # Delay between restore operations (ms)
+
+    close_delay: 100                  # Delay between close operations (ms)
+                                      # Higher = gives apps time to save state
+
+    arrange_delay: 100                # Delay before arranging after launch (ms)
+                                      # Higher = more reliable (waits for windows to load)
+
+# Performance Tuning Guide:
+# - For instant response: Set all delays to 0-50ms, polling to 1000ms
+# - For battery saving: Set delays to 100-200ms, polling to 10000ms
+# - For accuracy: Disable caching (enabled: false), disable optimistic_updates

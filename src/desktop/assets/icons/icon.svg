@@ -1,0 +1,396 @@
+<svg width="700" height="700" viewBox="0 0 700 700"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Row 1 -->
+  <!-- Blue App Window -->
+  <rect x="50" y="50" width="110" height="90" fill="#0ea5e9" stroke="#0284c7" stroke-width="2" rx="12"/>
+  <rect x="58" y="58" width="94" height="5" fill="#0891b2" rx="2"/>
+  <circle cx="63" cy="61" r="2" fill="#e0f2fe"/>
+  <circle cx="71" cy="61" r="2" fill="#e0f2fe"/>
+  <circle cx="79" cy="61" r="2" fill="#e0f2fe"/>
+  <rect x="60" y="72" width="60" height="15" fill="#0891b2" rx="1"/>
+  <rect x="60" y="92" width="40" height="10" fill="#0ea5e9" rx="1"/>
+  <rect x="60" y="107" width="75" height="8" fill="#38bdf8" rx="1"/>
+  <rect x="60" y="120" width="50" height="8" fill="#7dd3fc" rx="1"/>
+
+  <!-- Green App Window (Code Editor) -->
+  <rect x="180" y="50" width="110" height="90" fill="#22c55e" stroke="#16a34a" stroke-width="2" rx="12"/>
+  <rect x="188" y="58" width="94" height="5" fill="#10b981" rx="2"/>
+  <circle cx="193" cy="61" r="2" fill="#ecfdf5"/>
+  <circle cx="201" cy="61" r="2" fill="#ecfdf5"/>
+  <circle cx="209" cy="61" r="2" fill="#ecfdf5"/>
+  <rect x="190" y="72" width="4" height="15" fill="#059669"/>
+  <rect x="198" y="72" width="20" height="4" fill="#047857" rx="1"/>
+  <rect x="198" y="79" width="30" height="4" fill="#065f46" rx="1"/>
+  <rect x="206" y="86" width="22" height="4" fill="#059669" rx="1"/>
+  <rect x="198" y="93" width="38" height="4" fill="#047857" rx="1"/>
+  <rect x="190" y="100" width="8" height="4" fill="#dc2626" rx="1"/>
+  <rect x="202" y="100" width="25" height="4" fill="#047857" rx="1"/>
+
+  <!-- Orange App Window (E-commerce) -->
+  <rect x="310" y="50" width="110" height="90" fill="#f59e0b" stroke="#d97706" stroke-width="2" rx="12"/>
+  <rect x="318" y="58" width="94" height="5" fill="#f59e0b" rx="2"/>
+  <circle cx="323" cy="61" r="2" fill="#fef3c7"/>
+  <circle cx="331" cy="61" r="2" fill="#fef3c7"/>
+  <circle cx="339" cy="61" r="2" fill="#fef3c7"/>
+  <rect x="320" y="72" width="22" height="20" fill="#d97706" rx="1"/>
+  <rect x="346" y="72" width="55" height="4" fill="#b45309" rx="1"/>
+  <rect x="346" y="79" width="38" height="3" fill="#92400e" rx="1"/>
+  <rect x="346" y="85" width="45" height="3" fill="#92400e" rx="1"/>
+  <rect x="320" y="97" width="30" height="10" fill="#d97706" rx="5"/>
+  <rect x="355" y="97" width="30" height="10" fill="#fcd34d" rx="5"/>
+
+  <!-- Pink App Window (Social Media) -->
+  <rect x="440" y="50" width="110" height="90" fill="#ec4899" stroke="#be185d" stroke-width="2" rx="12"/>
+  <rect x="448" y="58" width="94" height="5" fill="#ec4899" rx="2"/>
+  <circle cx="453" cy="61" r="2" fill="#fce7f3"/>
+  <circle cx="461" cy="61" r="2" fill="#fce7f3"/>
+  <circle cx="469" cy="61" r="2" fill="#fce7f3"/>
+  <circle cx="461" cy="77" r="8" fill="#be185d"/>
+  <rect x="473" y="73" width="38" height="3" fill="#a21caf" rx="1"/>
+  <rect x="473" y="79" width="56" height="2" fill="#c026d3" rx="0.5"/>
+  <rect x="450" y="92" width="18" height="10" fill="#f3e8ff" rx="1"/>
+  <rect x="473" y="92" width="18" height="10" fill="#f3e8ff" rx="1"/>
+  <rect x="496" y="92" width="18" height="10" fill="#f3e8ff" rx="1"/>
+  <circle cx="459" cy="97" r="3" fill="#dc2626"/>
+  <circle cx="482" cy="97" r="3" fill="#059669"/>
+  <circle cx="505" cy="97" r="3" fill="#0891b2"/>
+
+  <!-- Red App Window (Video) -->
+  <rect x="570" y="50" width="110" height="90" fill="#ef4444" stroke="#dc2626" stroke-width="2" rx="12"/>
+  <rect x="578" y="58" width="94" height="5" fill="#ef4444" rx="2"/>
+  <circle cx="583" cy="61" r="2" fill="#fee2e2"/>
+  <circle cx="591" cy="61" r="2" fill="#fee2e2"/>
+  <circle cx="599" cy="61" r="2" fill="#fee2e2"/>
+  <rect x="580" y="70" width="88" height="48" fill="#450a0a" rx="3"/>
+  <polygon points="605,85 605,105 625,95" fill="#fee2e2"/>
+  <rect x="582" y="110" width="15" height="2" fill="#dc2626" rx="0.5"/>
+  <rect x="582" y="117" width="75" height="2" fill="#b91c1c" rx="0.5"/>
+
+  <!-- Row 2 -->
+  <!-- Cyan App Window (Database) -->
+  <rect x="50" y="160" width="110" height="90" fill="#06b6d4" stroke="#0891b2" stroke-width="2" rx="12"/>
+  <rect x="58" y="168" width="94" height="5" fill="#06b6d4" rx="2"/>
+  <circle cx="63" cy="171" r="2" fill="#cffafe"/>
+  <circle cx="71" cy="171" r="2" fill="#cffafe"/>
+  <circle cx="79" cy="171" r="2" fill="#cffafe"/>
+  <rect x="60" y="182" width="90" height="3" fill="#0891b2" rx="1"/>
+  <rect x="60" y="188" width="90" height="3" fill="#0e7490" rx="1"/>
+  <rect x="60" y="194" width="90" height="3" fill="#155e75" rx="1"/>
+  <rect x="60" y="200" width="90" height="3" fill="#164e63" rx="1"/>
+  <rect x="60" y="206" width="90" height="3" fill="#0891b2" rx="1"/>
+  <rect x="60" y="212" width="90" height="3" fill="#0e7490" rx="1"/>
+  <circle cx="70" cy="225" r="6" fill="#67e8f9"/>
+  <circle cx="90" cy="225" r="6" fill="#22d3ee"/>
+  <circle cx="110" cy="225" r="6" fill="#06b6d4"/>
+  <circle cx="130" cy="225" r="6" fill="#0891b2"/>
+
+  <!-- Teal App Window (Analytics) -->
+  <rect x="180" y="160" width="110" height="90" fill="#14b8a6" stroke="#0d9488" stroke-width="2" rx="12"/>
+  <rect x="188" y="168" width="94" height="5" fill="#14b8a6" rx="2"/>
+  <circle cx="193" cy="171" r="2" fill="#ccfbf1"/>
+  <circle cx="201" cy="171" r="2" fill="#ccfbf1"/>
+  <circle cx="209" cy="171" r="2" fill="#ccfbf1"/>
+  <rect x="190" y="182" width="8" height="40" fill="#0f766e"/>
+  <rect x="202" y="190" width="8" height="32" fill="#134e4a"/>
+  <rect x="214" y="185" width="8" height="37" fill="#0f766e"/>
+  <rect x="226" y="188" width="8" height="34" fill="#134e4a"/>
+  <rect x="238" y="192" width="8" height="30" fill="#0f766e"/>
+  <rect x="250" y="195" width="8" height="27" fill="#134e4a"/>
+  <rect x="262" y="198" width="8" height="24" fill="#0f766e"/>
+  <polyline points="194,195 206,185 218,190 230,180 242,185 254,175 266,180" stroke="#5eead4" stroke-width="2" fill="none"/>
+
+  <!-- Indigo App Window (Design) -->
+  <rect x="310" y="160" width="110" height="90" fill="#6366f1" stroke="#4f46e5" stroke-width="2" rx="12"/>
+  <rect x="318" y="168" width="94" height="5" fill="#6366f1" rx="2"/>
+  <circle cx="323" cy="171" r="2" fill="#e0e7ff"/>
+  <circle cx="331" cy="171" r="2" fill="#e0e7ff"/>
+  <circle cx="339" cy="171" r="2" fill="#e0e7ff"/>
+  <circle cx="340" cy="190" r="12" fill="#4338ca" stroke="#3730a3" stroke-width="2"/>
+  <rect x="358" y="185" width="30" height="10" fill="#4338ca" rx="2"/>
+  <polygon points="365,200 375,210 385,200 375,215" fill="#3730a3"/>
+  <rect x="320" y="215" width="20" height="20" fill="#818cf8" rx="3"/>
+  <rect x="345" y="215" width="20" height="20" fill="#a5b4fc" rx="3"/>
+  <rect x="370" y="215" width="20" height="20" fill="#c7d2fe" rx="3"/>
+  <rect x="395" y="215" width="20" height="20" fill="#e0e7ff" rx="3"/>
+
+  <!-- Yellow App Window (Notes) -->
+  <rect x="440" y="160" width="110" height="90" fill="#eab308" stroke="#ca8a04" stroke-width="2" rx="12"/>
+  <rect x="448" y="168" width="94" height="5" fill="#eab308" rx="2"/>
+  <circle cx="453" cy="171" r="2" fill="#fefce8"/>
+  <circle cx="461" cy="171" r="2" fill="#fefce8"/>
+  <circle cx="469" cy="171" r="2" fill="#fefce8"/>
+  <rect x="450" y="182" width="85" height="3" fill="#a16207" rx="1"/>
+  <rect x="450" y="188" width="70" height="3" fill="#92400e" rx="1"/>
+  <rect x="450" y="194" width="80" height="3" fill="#a16207" rx="1"/>
+  <rect x="450" y="200" width="60" height="3" fill="#92400e" rx="1"/>
+  <rect x="450" y="206" width="75" height="3" fill="#a16207" rx="1"/>
+  <rect x="450" y="212" width="55" height="3" fill="#92400e" rx="1"/>
+  <rect x="450" y="218" width="85" height="3" fill="#a16207" rx="1"/>
+  <circle cx="460" cy="230" r="4" fill="#fde047"/>
+  <circle cx="475" cy="230" r="4" fill="#facc15"/>
+  <circle cx="490" cy="230" r="4" fill="#eab308"/>
+
+  <!-- Lime App Window (Productivity) -->
+  <rect x="570" y="160" width="110" height="90" fill="#84cc16" stroke="#65a30d" stroke-width="2" rx="12"/>
+  <rect x="578" y="168" width="94" height="5" fill="#84cc16" rx="2"/>
+  <circle cx="583" cy="171" r="2" fill="#f7fee7"/>
+  <circle cx="591" cy="171" r="2" fill="#f7fee7"/>
+  <circle cx="599" cy="171" r="2" fill="#f7fee7"/>
+  <rect x="580" y="182" width="12" height="12" fill="#65a30d" rx="1"/>
+  <rect x="596" y="182" width="70" height="3" fill="#4d7c0f" rx="1"/>
+  <rect x="596" y="188" width="50" height="2" fill="#365314" rx="1"/>
+  <rect x="580" y="198" width="12" height="12" fill="#65a30d" rx="1"/>
+  <rect x="596" y="198" width="65" height="3" fill="#4d7c0f" rx="1"/>
+  <rect x="596" y="204" width="45" height="2" fill="#365314" rx="1"/>
+  <rect x="580" y="214" width="12" height="12" fill="#65a30d" rx="1"/>
+  <rect x="596" y="214" width="60" height="3" fill="#4d7c0f" rx="1"/>
+  <rect x="596" y="220" width="40" height="2" fill="#365314" rx="1"/>
+
+  <!-- Row 3 -->
+  <!-- Rose App Window (Health) -->
+  <rect x="50" y="270" width="110" height="90" fill="#f43f5e" stroke="#e11d48" stroke-width="2" rx="12"/>
+  <rect x="58" y="278" width="94" height="5" fill="#f43f5e" rx="2"/>
+  <circle cx="63" cy="281" r="2" fill="#ffe4e6"/>
+  <circle cx="71" cy="281" r="2" fill="#ffe4e6"/>
+  <circle cx="79" cy="281" r="2" fill="#ffe4e6"/>
+  <circle cx="105" cy="305" r="18" fill="#e11d48"/>
+  <path d="M 95 305 Q 105 295 115 305 Q 105 315 95 305" fill="#ffe4e6"/>
+  <rect x="60" y="330" width="85" height="4" fill="#be123c" rx="2"/>
+  <rect x="60" y="338" width="70" height="3" fill="#9f1239" rx="1"/>
+  <rect x="60" y="345" width="80" height="3" fill="#881337" rx="1"/>
+
+  <!-- Amber App Window (Music) -->
+  <rect x="180" y="270" width="110" height="90" fill="#f59e0b" stroke="#d97706" stroke-width="2" rx="12"/>
+  <rect x="188" y="278" width="94" height="5" fill="#f59e0b" rx="2"/>
+  <circle cx="193" cy="281" r="2" fill="#fef3c7"/>
+  <circle cx="201" cy="281" r="2" fill="#fef3c7"/>
+  <circle cx="209" cy="281" r="2" fill="#fef3c7"/>
+  <circle cx="235" cy="310" r="20" fill="#d97706"/>
+  <circle cx="235" cy="310" r="8" fill="#92400e"/>
+  <circle cx="235" cy="310" r="2" fill="#451a03"/>
+  <polygon points="215,305 215,315 225,310" fill="#fbbf24"/>
+  <polygon points="255,315 255,305 245,310" fill="#fbbf24"/>
+  <rect x="190" y="340" width="20" height="6" fill="#b45309" rx="3"/>
+  <rect x="215" y="340" width="40" height="6" fill="#d97706" rx="3"/>
+  <rect x="260" y="340" width="20" height="6" fill="#b45309" rx="3"/>
+
+  <!-- Violet App Window (Chat) -->
+  <rect x="310" y="270" width="110" height="90" fill="#7c3aed" stroke="#6d28d9" stroke-width="2" rx="12"/>
+  <rect x="318" y="278" width="94" height="5" fill="#7c3aed" rx="2"/>
+  <circle cx="323" cy="281" r="2" fill="#f3e8ff"/>
+  <circle cx="331" cy="281" r="2" fill="#f3e8ff"/>
+  <circle cx="339" cy="281" r="2" fill="#f3e8ff"/>
+  <rect x="320" y="292" width="50" height="8" fill="#5b21b6" rx="4"/>
+  <rect x="350" y="305" width="55" height="8" fill="#8b5cf6" rx="4"/>
+  <rect x="320" y="318" width="45" height="8" fill="#5b21b6" rx="4"/>
+  <rect x="345" y="331" width="60" height="8" fill="#8b5cf6" rx="4"/>
+  <circle cx="330" cy="346" r="3" fill="#c4b5fd"/>
+  <circle cx="340" cy="346" r="3" fill="#c4b5fd"/>
+  <circle cx="350" cy="346" r="3" fill="#c4b5fd"/>
+
+  <!-- Slate App Window (Terminal) -->
+  <rect x="440" y="270" width="110" height="90" fill="#475569" stroke="#334155" stroke-width="2" rx="12"/>
+  <rect x="448" y="278" width="94" height="5" fill="#475569" rx="2"/>
+  <circle cx="453" cy="281" r="2" fill="#f8fafc"/>
+  <circle cx="461" cy="281" r="2" fill="#f8fafc"/>
+  <circle cx="469" cy="281" r="2" fill="#f8fafc"/>
+  <rect x="450" y="292" width="4" height="3" fill="#22c55e"/>
+  <rect x="458" y="292" width="25" height="3" fill="#e2e8f0" rx="1"/>
+  <rect x="450" y="298" width="4" height="3" fill="#22c55e"/>
+  <rect x="458" y="298" width="40" height="3" fill="#e2e8f0" rx="1"/>
+  <rect x="450" y="304" width="4" height="3" fill="#22c55e"/>
+  <rect x="458" y="304" width="30" height="3" fill="#e2e8f0" rx="1"/>
+  <rect x="450" y="310" width="4" height="3" fill="#22c55e"/>
+  <rect x="458" y="310" width="35" height="3" fill="#e2e8f0" rx="1"/>
+  <rect x="450" y="316" width="4" height="3" fill="#22c55e"/>
+  <rect x="458" y="316" width="20" height="3" fill="#e2e8f0" rx="1"/>
+  <rect x="450" y="322" width="4" height="3" fill="#22c55e"/>
+  <rect x="458" y="322" width="45" height="3" fill="#e2e8f0" rx="1"/>
+  <rect x="454" y="340" width="8" height="3" fill="#22c55e"/>
+
+  <!-- Fuchsia App Window (Gaming) -->
+  <rect x="570" y="270" width="110" height="90" fill="#d946ef" stroke="#c026d3" stroke-width="2" rx="12"/>
+  <rect x="578" y="278" width="94" height="5" fill="#d946ef" rx="2"/>
+  <circle cx="583" cy="281" r="2" fill="#fae8ff"/>
+  <circle cx="591" cy="281" r="2" fill="#fae8ff"/>
+  <circle cx="599" cy="281" r="2" fill="#fae8ff"/>
+  <rect x="580" y="292" width="88" height="50" fill="#701a75" rx="3"/>
+  <circle cx="605" cy="310" r="6" fill="#e879f9"/>
+  <circle cx="625" cy="310" r="6" fill="#e879f9"/>
+  <circle cx="645" cy="310" r="6" fill="#e879f9"/>
+  <rect x="590" y="325" width="15" height="8" fill="#c026d3" rx="1"/>
+  <rect x="610" y="325" width="15" height="8" fill="#c026d3" rx="1"/>
+  <rect x="630" y="325" width="15" height="8" fill="#c026d3" rx="1"/>
+  <rect x="650" y="325" width="15" height="8" fill="#c026d3" rx="1"/>
+
+  <!-- Row 4 -->
+  <!-- Green App Window (Development) -->
+  <rect x="50" y="380" width="110" height="90" fill="#16a34a" stroke="#15803d" stroke-width="2" rx="12"/>
+  <rect x="58" y="388" width="94" height="5" fill="#16a34a" rx="2"/>
+  <circle cx="63" cy="391" r="2" fill="#dcfce7"/>
+  <circle cx="71" cy="391" r="2" fill="#dcfce7"/>
+  <circle cx="79" cy="391" r="2" fill="#dcfce7"/>
+  <rect x="60" y="405" width="5" height="50" fill="#15803d"/>
+  <rect x="70" y="405" width="20" height="4" fill="#166534" rx="1"/>
+  <rect x="70" y="413" width="35" height="4" fill="#14532d" rx="1"/>
+  <rect x="80" y="421" width="25" height="4" fill="#166534" rx="1"/>
+  <rect x="70" y="429" width="45" height="4" fill="#14532d" rx="1"/>
+  <rect x="65" y="437" width="8" height="4" fill="#dc2626" rx="1"/>
+  <rect x="78" y="437" width="30" height="4" fill="#166534" rx="1"/>
+  <rect x="70" y="445" width="40" height="4" fill="#14532d" rx="1"/>
+  <rect x="115" y="445" width="25" height="4" fill="#166534" rx="1"/>
+
+  <!-- Blue App Window (Project Management) -->
+  <rect x="180" y="380" width="110" height="90" fill="#1e40af" stroke="#1e3a8a" stroke-width="2" rx="12"/>
+  <rect x="188" y="388" width="94" height="5" fill="#1e40af" rx="2"/>
+  <circle cx="193" cy="391" r="2" fill="#dbeafe"/>
+  <circle cx="201" cy="391" r="2" fill="#dbeafe"/>
+  <circle cx="209" cy="391" r="2" fill="#dbeafe"/>
+  <rect x="190" y="405" width="25" height="6" fill="#2563eb" rx="1"/>
+  <rect x="190" y="415" width="35" height="6" fill="#3b82f6" rx="1"/>
+  <rect x="190" y="425" width="30" height="6" fill="#60a5fa" rx="1"/>
+  <rect x="190" y="435" width="40" height="6" fill="#93c5fd" rx="1"/>
+  <rect x="230" y="405" width="50" height="50" fill="#1d4ed8" rx="3"/>
+  <rect x="240" y="415" width="8" height="8" fill="#60a5fa" rx="1"/>
+  <rect x="252" y="415" width="8" height="8" fill="#93c5fd" rx="1"/>
+  <rect x="264" y="415" width="8" height="8" fill="#bfdbfe" rx="1"/>
+  <rect x="240" y="427" width="8" height="8" fill="#3b82f6" rx="1"/>
+  <rect x="252" y="427" width="8" height="8" fill="#60a5fa" rx="1"/>
+  <rect x="264" y="427" width="8" height="8" fill="#93c5fd" rx="1"/>
+  <rect x="240" y="439" width="8" height="8" fill="#2563eb" rx="1"/>
+  <rect x="252" y="439" width="8" height="8" fill="#3b82f6" rx="1"/>
+  <rect x="264" y="439" width="8" height="8" fill="#60a5fa" rx="1"/>
+
+  <!-- Orange App Window (Photography) -->
+  <rect x="310" y="380" width="110" height="90" fill="#f97316" stroke="#ea580c" stroke-width="2" rx="12"/>
+  <rect x="318" y="388" width="94" height="5" fill="#f97316" rx="2"/>
+  <circle cx="323" cy="391" r="2" fill="#fed7aa"/>
+  <circle cx="331" cy="391" r="2" fill="#fed7aa"/>
+  <circle cx="339" cy="391" r="2" fill="#fed7aa"/>
+  <rect x="320" y="405" width="85" height="45" fill="#9a3412" rx="2"/>
+  <rect x="330" y="415" width="20" height="15" fill="#fb923c" rx="1"/>
+  <rect x="355" y="415" width="20" height="15" fill="#fdba74" rx="1"/>
+  <rect x="380" y="415" width="20" height="15" fill="#fed7aa" rx="1"/>
+  <rect x="330" y="435" width="20" height="10" fill="#fb923c" rx="1"/>
+  <rect x="355" y="435" width="20" height="10" fill="#fdba74" rx="1"/>
+  <rect x="380" y="435" width="20" height="10" fill="#fed7aa" rx="1"/>
+
+  <!-- Violet App Window (AI Assistant) -->
+  <rect x="440" y="380" width="110" height="90" fill="#7c3aed" stroke="#6d28d9" stroke-width="2" rx="12"/>
+  <rect x="448" y="388" width="94" height="5" fill="#7c3aed" rx="2"/>
+  <circle cx="453" cy="391" r="2" fill="#f3e8ff"/>
+  <circle cx="461" cy="391" r="2" fill="#f3e8ff"/>
+  <circle cx="469" cy="391" r="2" fill="#f3e8ff"/>
+  <circle cx="495" cy="420" r="15" fill="#5b21b6"/>
+  <circle cx="495" cy="415" r="4" fill="#c4b5fd"/>
+  <circle cx="490" cy="422" r="2" fill="#c4b5fd"/>
+  <circle cx="500" cy="422" r="2" fill="#c4b5fd"/>
+  <ellipse cx="495" cy="428" rx="6" ry="3" fill="#c4b5fd"/>
+  <rect x="450" y="445" width="30" height="4" fill="#8b5cf6" rx="2"/>
+  <rect x="485" y="445" width="40" height="4" fill="#a855f7" rx="2"/>
+  <rect x="530" y="445" width="15" height="4" fill="#c4b5fd" rx="2"/>
+
+  <!-- Rose App Window (Social) -->
+  <rect x="570" y="380" width="110" height="90" fill="#e11d48" stroke="#be123c" stroke-width="2" rx="12"/>
+  <rect x="578" y="388" width="94" height="5" fill="#e11d48" rx="2"/>
+  <circle cx="583" cy="391" r="2" fill="#ffe4e6"/>
+  <circle cx="591" cy="391" r="2" fill="#ffe4e6"/>
+  <circle cx="599" cy="391" r="2" fill="#ffe4e6"/>
+  <circle cx="605" cy="415" r="8" fill="#be123c"/>
+  <circle cx="630" cy="415" r="8" fill="#be123c"/>
+  <circle cx="655" cy="415" r="8" fill="#be123c"/>
+  <rect x="590" y="430" width="15" height="8" fill="#f9a8d4" rx="1"/>
+  <rect x="610" y="430" width="15" height="8" fill="#f9a8d4" rx="1"/>
+  <rect x="630" y="430" width="15" height="8" fill="#f9a8d4" rx="1"/>
+  <rect x="650" y="430" width="15" height="8" fill="#f9a8d4" rx="1"/>
+  <circle cx="597" cy="434" r="2" fill="#dc2626"/>
+  <circle cx="617" cy="434" r="2" fill="#059669"/>
+  <circle cx="637" cy="434" r="2" fill="#0891b2"/>
+  <circle cx="657" cy="434" r="2" fill="#f59e0b"/>
+
+  <!-- Row 5 -->
+  <!-- Row 5 -->
+  <!-- Lime App Window (Calendar) -->
+  <rect x="50" y="490" width="110" height="90" fill="#65a30d" stroke="#4d7c0f" stroke-width="2" rx="12"/>
+  <rect x="58" y="498" width="94" height="5" fill="#65a30d" rx="2"/>
+  <circle cx="63" cy="501" r="2" fill="#f7fee7"/>
+  <circle cx="71" cy="501" r="2" fill="#f7fee7"/>
+  <circle cx="79" cy="501" r="2" fill="#f7fee7"/>
+  <rect x="60" y="515" width="85" height="4" fill="#4d7c0f" rx="1"/>
+  <rect x="60" y="525" width="12" height="8" fill="#84cc16" rx="1"/>
+  <rect x="75" y="525" width="12" height="8" fill="#84cc16" rx="1"/>
+  <rect x="90" y="525" width="12" height="8" fill="#84cc16" rx="1"/>
+  <rect x="105" y="525" width="12" height="8" fill="#84cc16" rx="1"/>
+  <rect x="120" y="525" width="12" height="8" fill="#84cc16" rx="1"/>
+  <rect x="135" y="525" width="12" height="8" fill="#84cc16" rx="1"/>
+  <rect x="60" y="538" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="75" y="538" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="90" y="538" width="12" height="8" fill="#65a30d" rx="1"/>
+  <rect x="105" y="538" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="120" y="538" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="135" y="538" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="60" y="551" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="75" y="551" width="12" height="8" fill="#84cc16" rx="1"/>
+  <rect x="90" y="551" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="105" y="551" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="120" y="551" width="12" height="8" fill="#a3e635" rx="1"/>
+  <rect x="135" y="551" width="12" height="8" fill="#a3e635" rx="1"/>
+
+  <!-- Yellow App Window (Documents) -->
+  <rect x="180" y="490" width="110" height="90" fill="#facc15" stroke="#eab308" stroke-width="2" rx="12"/>
+  <rect x="188" y="498" width="94" height="5" fill="#facc15" rx="2"/>
+  <circle cx="193" cy="501" r="2" fill="#fefce8"/>
+  <circle cx="201" cy="501" r="2" fill="#fefce8"/>
+  <circle cx="209" cy="501" r="2" fill="#fefce8"/>
+  <rect x="190" y="515" width="85" height="50" fill="#fde047" rx="2"/>
+  <rect x="200" y="525" width="65" height="3" fill="#ca8a04" rx="1"/>
+  <rect x="200" y="532" width="50" height="3" fill="#a16207" rx="1"/>
+  <rect x="200" y="539" width="70" height="3" fill="#ca8a04" rx="1"/>
+  <rect x="200" y="546" width="45" height="3" fill="#a16207" rx="1"/>
+  <rect x="200" y="553" width="60" height="3" fill="#ca8a04" rx="1"/>
+
+  <!-- Indigo App Window (Security) -->
+  <rect x="310" y="490" width="110" height="90" fill="#4338ca" stroke="#3730a3" stroke-width="2" rx="12"/>
+  <rect x="318" y="498" width="94" height="5" fill="#4338ca" rx="2"/>
+  <circle cx="323" cy="501" r="2" fill="#e0e7ff"/>
+  <circle cx="331" cy="501" r="2" fill="#e0e7ff"/>
+  <circle cx="339" cy="501" r="2" fill="#e0e7ff"/>
+  <rect x="340" y="510" width="30" height="35" fill="#3730a3" rx="3"/>
+  <rect x="345" y="505" width="20" height="8" fill="#4338ca" rx="4"/>
+  <circle cx="355" cy="509" r="2" fill="#e0e7ff"/>
+  <rect x="350" y="515" width="10" height="3" fill="#6366f1"/>
+  <rect x="350" y="520" width="10" height="3" fill="#6366f1"/>
+  <rect x="350" y="525" width="10" height="3" fill="#6366f1"/>
+  <rect x="350" y="530" width="10" height="3" fill="#6366f1"/>
+  <rect x="350" y="535" width="10" height="3" fill="#6366f1"/>
+
+  <!-- Red App Window (Media Player) -->
+  <rect x="440" y="490" width="110" height="90" fill="#dc2626" stroke="#b91c1c" stroke-width="2" rx="12"/>
+  <rect x="448" y="498" width="94" height="5" fill="#dc2626" rx="2"/>
+  <circle cx="453" cy="501" r="2" fill="#fee2e2"/>
+  <circle cx="461" cy="501" r="2" fill="#fee2e2"/>
+  <circle cx="469" cy="501" r="2" fill="#fee2e2"/>
+  <rect x="450" y="515" width="85" height="35" fill="#7f1d1d" rx="3"/>
+  <polygon points="470,525 470,545 490,535" fill="#fee2e2"/>
+  <rect x="500" y="530" width="4" height="10" fill="#fecaca"/>
+  <rect x="507" y="530" width="4" height="10" fill="#fecaca"/>
+  <circle cx="520" cy="535" r="5" fill="#b91c1c"/>
+  <rect x="450" y="560" width="20" height="3" fill="#dc2626" rx="1"/>
+  <rect x="475" y="560" width="60" height="3" fill="#b91c1c" rx="1"/>
+
+  <!-- Slate App Window (System Monitor) -->
+  <rect x="570" y="490" width="110" height="90" fill="#374151" stroke="#1f2937" stroke-width="2" rx="12"/>
+  <rect x="578" y="498" width="94" height="5" fill="#374151" rx="2"/>
+  <circle cx="583" cy="501" r="2" fill="#f9fafb"/>
+  <circle cx="591" cy="501" r="2" fill="#f9fafb"/>
+  <circle cx="599" cy="501" r="2" fill="#f9fafb"/>
+  <rect x="580" y="515" width="85" height="4" fill="#4b5563" rx="1"/>
+  <rect x="580" y="525" width="65" height="2" fill="#6b7280" rx="1"/>
+  <rect x="580" y="532" width="75" height="2" fill="#6b7280" rx="1"/>
+  <rect x="580" y="539" width="55" height="2" fill="#6b7280" rx="1"/>
+  <rect x="580" y="546" width="80" height="2" fill="#6b7280" rx="1"/>
+  <rect x="580" y="553" width="60" height="2" fill="#6b7280" rx="1"/>
+  <rect x="580" y="560" width="85" height="2" fill="#6b7280" rx="1"/>
+
+</svg>

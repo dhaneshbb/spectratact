@@ -1,0 +1,26 @@
+# SpectraTact Development Dependencies
+# Install with: pip install -r requirements-dev.txt
+# This includes all runtime dependencies plus development tools
+
+# Include runtime dependencies
+-r requirements.txt
+
+# Pre-commit hooks framework
+pre-commit
+
+# Code formatting
+black
+
+# Code linting and style checking
+flake8
+pyflakes
+
+# Type checking
+mypy
+types-PyYAML
+
+# Testing framework
+pytest
+
+# Test coverage reporting
+pytest-cov

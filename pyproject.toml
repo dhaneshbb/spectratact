@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spectratact"
+version = "0.1.0"
+description = "Desktop application management tool with selective targeting and intelligent window orchestration"
+readme = "README.md"
+license = {text = "GPL-3.0-or-later"}
+authors = [
+    {name = "dhaneshbb", email = "dhaneshbb5@gmail.com"}
+]
+keywords = [
+    "spectratact", "desktop-management", "automation", "window-orchestration",
+    "application-control", "multi-platform", "electron", "desktop"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business",
+    "Topic :: Software Development :: User Interfaces",
+    "Topic :: System :: Systems Administration",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "psutil>=5.8.0",
+    "pywin32>=227",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "pyflakes",
+    "pytest",
+    "pytest-cov",
+]
+build = [
+    "tomli>=1.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dhaneshbb/spectratact"
+Repository = "https://github.com/dhaneshbb/spectratact"
+Issues = "https://github.com/dhaneshbb/spectratact/issues"
+Changelog = "https://github.com/dhaneshbb/spectratact/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/dhaneshbb/spectratact/tree/main/docs"
+
+[project.scripts]
+spectratact = "spectratact.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["spectratact*"]
+exclude = ["tests*", "*.tests", "*.tests.*"]
+
+[tool.setuptools.package-data]
+spectratact = ["py.typed"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.git
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | release
+    | \.bkup
+    | \.Release
+    | src/desktop
+    | node_modules
+    | __pycache__
+)/
+'''

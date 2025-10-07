@@ -1,0 +1,297 @@
+# SpectraTact Load Apps Configuration Example
+# Master list of all available application profiles
+#
+# Location: config/load_apps.yml
+# Format: YAML (use spaces for indentation, NOT tabs)
+#
+# PURPOSE:
+# This file contains ALL available application profiles that can be loaded.
+# Profiles defined here are NOT automatically launched - they must be loaded
+# into loaded_apps.yml first (either manually or via the GUI).
+#
+# NOTE: This works with ANY Windows application (not just browsers):
+#       - Web browsers (Chrome, Edge, etc.)
+#       - Desktop applications (Slack, Discord, Zoom, VS Code, etc.)
+#       - Text editors (Notepad++, Sublime, etc.)
+#       - IDEs, terminals, productivity tools, and more
+#       Applications are detected by keywords and launched via .lnk shortcuts
+#
+# WORKFLOW:
+# 1. Define applications and profiles here in load_apps.yml
+# 2. Load profiles into loaded_apps.yml via GUI or manual editing
+# 3. Only profiles in loaded_apps.yml will be launched and managed
+#
+#================================================================================
+# APPLICATIONS CONFIGURATION
+#================================================================================
+
+apps:
+  #==============================================================================
+  # HOW TO ADD YOUR OWN APPLICATIONS
+  #==============================================================================
+  #
+  # STEP 1: Create a Windows shortcut (.lnk) for your application
+  #         - Right-click desktop → New → Shortcut
+  #         - Browse to application executable (e.g., C:\Program Files\MyApp\app.exe)
+  #         - Save shortcut to a folder (e.g., C:\Apps\MyApp.lnk)
+  #
+  # STEP 2: Find the window title keywords
+  #         - Launch the application
+  #         - Look at the window title bar (top of window)
+  #         - Note unique words/phrases (e.g., "MyApp", "myapp.com")
+  #
+  # STEP 3: Add application entry below following this template:
+  #
+  #   Your_App_Name:                   # Use underscores for spaces
+  #     keywords:
+  #       - keyword1                   # Words from window title
+  #       - keyword2                   # Add multiple for better detection
+  #     profiles:
+  #       - name: "Your App Name"      # Display name
+  #         profile: "Default"         # Profile identifier
+  #         app_path: "C:\\Apps\\YourApp.lnk"  # Path to shortcut (use \\)
+  #         enabled: false
+  #
+  # STEP 4: Save this file
+  #
+  # STEP 5: Load the profile via GUI:
+  #         - Open SpectraTact
+  #         - Click "Load Apps" panel
+  #         - Select your app profile
+  #         - Click "Load Selected"
+  #
+  #==============================================================================
+
+  #------------------------------------------------------------------------------
+  # Application Entry Template
+  #------------------------------------------------------------------------------
+  # Each top-level key is the application platform/service name
+  # Use underscores for spaces in key names (e.g., "My_Application")
+
+  # Example: Application with multiple profiles
+  App_Name_1:
+    # Keywords for window detection (case-insensitive)
+    # These keywords are matched against window titles to identify the application
+    # The window manager will detect any window containing these keywords
+    keywords:
+      - example.com             # Primary domain
+      - app name                # Window title text
+      - keyword1                # Additional keyword
+      - keyword2                # Additional keyword
+
+    # Profiles: Different configurations for the same application
+    # Use cases: Work vs Personal accounts, Different projects, etc.
+    profiles:
+      # Profile 1: Work Account
+      - name: "App Name 1"              # Display name in UI
+        profile: "Work"                 # Profile identifier (e.g., Work, Personal, Project1)
+        app_path: "C:\\Apps\\App1 - Work.lnk"  # Path to .lnk shortcut file
+                                        # IMPORTANT: Use Windows shortcuts (.lnk files)
+                                        # Use double backslashes (\\) for Windows paths
+        enabled: false                  # Initial enabled state (true/false)
+                                        # This is overridden when loaded into loaded_apps.yml
+
+      # Profile 2: Personal Account
+      - name: "App Name 1"
+        profile: "Personal"
+        app_path: "C:\\Apps\\App1 - Personal.lnk"
+        enabled: false
+
+  #------------------------------------------------------------------------------
+  # Example: Single profile application
+  #------------------------------------------------------------------------------
+
+  App_Name_2:
+    keywords:
+      - app2.example.com        # Domain matching
+      - application 2           # Window title matching
+      - service name
+    profiles:
+      - name: "App Name 2"
+        profile: "Default"
+        app_path: "C:\\Apps\\App2.lnk"
+        enabled: false
+
+  #------------------------------------------------------------------------------
+  # Example: Application with three profiles
+  #------------------------------------------------------------------------------
+
+  App_Name_3:
+    keywords:
+      - app3.example.com
+      - application three
+      - app3
+    profiles:
+      - name: "App Name 3"
+        profile: "Project A"
+        app_path: "C:\\Apps\\App3 - ProjectA.lnk"
+        enabled: false
+
+      - name: "App Name 3"
+        profile: "Project B"
+        app_path: "C:\\Apps\\App3 - ProjectB.lnk"
+        enabled: false
+
+      - name: "App Name 3"
+        profile: "Personal"
+        app_path: "C:\\Apps\\App3 - Personal.lnk"
+        enabled: false
+
+  #------------------------------------------------------------------------------
+  # Additional examples (commented out)
+  #------------------------------------------------------------------------------
+
+  # App_Name_4:
+  #   keywords:
+  #     - app4.example.com
+  #     - application 4
+  #   profiles:
+  #     - name: "App Name 4"
+  #       profile: "Main"
+  #       app_path: "C:\\Apps\\App4.lnk"
+  #       enabled: false
+
+  # App_Name_5:
+  #   keywords:
+  #     - app5.example.com
+  #     - application 5
+  #   profiles:
+  #     - name: "App Name 5"
+  #       profile: "Work"
+  #       app_path: "C:\\Apps\\App5.lnk"
+  #       enabled: false
+  #
+  #     - name: "App Name 5"
+  #       profile: "Personal"
+  #       app_path: "C:\\Apps\\App5 - Personal.lnk"
+  #       enabled: false
+
+  #------------------------------------------------------------------------------
+  # PRACTICAL EXAMPLES - Real Applications
+  #------------------------------------------------------------------------------
+  # Uncomment and modify the paths to use these examples
+
+  # Visual_Studio_Code:
+  #   keywords:
+  #     - Visual Studio Code
+  #     - VS Code
+  #     - vscode
+  #   profiles:
+  #     - name: "VS Code"
+  #       profile: "Default"
+  #       app_path: "C:\\Users\\YourUsername\\Desktop\\VS Code.lnk"
+  #       enabled: false
+
+  # Notepad_Plus_Plus:
+  #   keywords:
+  #     - Notepad++
+  #     - new 1
+  #   profiles:
+  #     - name: "Notepad++"
+  #       profile: "Default"
+  #       app_path: "C:\\Program Files\\Notepad++\\notepad++.lnk"
+  #       enabled: false
+
+  # Command_Prompt:
+  #   keywords:
+  #     - Command Prompt
+  #     - cmd.exe
+  #     - C:\\Windows\\system32\\cmd.exe
+  #   profiles:
+  #     - name: "Command Prompt"
+  #       profile: "Default"
+  #       app_path: "C:\\Users\\YourUsername\\Desktop\\Command Prompt.lnk"
+  #       enabled: false
+
+  # Chrome_Browser:
+  #   keywords:
+  #     - Google Chrome
+  #     - Chrome
+  #   profiles:
+  #     - name: "Chrome"
+  #       profile: "Default"
+  #       app_path: "C:\\Users\\YourUsername\\Desktop\\Chrome.lnk"
+  #       enabled: false
+  #
+  #     - name: "Chrome"
+  #       profile: "Work"
+  #       app_path: "C:\\Users\\YourUsername\\Desktop\\Chrome - Work.lnk"
+  #       enabled: false
+
+#================================================================================
+# SETTINGS (Optional)
+#================================================================================
+
+# Optional settings section for metadata and organization
+settings:
+  # Directory where application shortcuts are stored
+  apps_directory: "C:\\Apps"
+
+  # Categories for organization (not used by core functionality)
+  categories:
+    - "productivity"
+    - "communication"
+    - "development"
+    - "design"
+
+#================================================================================
+# TIPS AND BEST PRACTICES
+#================================================================================
+
+# 1. KEYWORD SELECTION:
+#    - Use specific keywords to avoid false matches
+#    - Include domain names for web applications
+#    - Test keywords by checking window titles
+#    - More keywords = better detection reliability
+
+# 2. PROFILE NAMING:
+#    - Use descriptive profile names (Work, Personal, Project1, etc.)
+#    - Keep names consistent across applications
+#    - Profile names are displayed in the UI
+
+# 3. APP PATHS:
+#    - Always use .lnk (Windows shortcut) files
+#    - Use absolute paths (C:\\..., D:\\..., etc.)
+#    - Use double backslashes (\\) in Windows paths
+#    - Test shortcuts manually before adding
+
+# 4. ORGANIZING PROFILES:
+#    - Group related profiles together
+#    - Use consistent naming conventions
+#    - Document special configurations with comments
+
+# 5. LOADING PROFILES:
+#    - Use GUI: Load Apps panel → Select profiles → Load Selected
+#    - Manual: Copy profile entries to loaded_apps.yml
+#    - Profiles must be in loaded_apps.yml to be launched
+
+# 6. MAINTENANCE:
+#    - Keep this file as the master list
+#    - Add new applications here first
+#    - Remove obsolete applications periodically
+#    - Update paths if applications move
+
+#================================================================================
+# TROUBLESHOOTING
+#================================================================================
+
+# Issue: Windows not detected
+# Solution: Check keywords against actual window titles
+#          Add more specific keywords
+#          Verify target_detection settings in settings.yml
+
+# Issue: Application won't launch
+# Solution: Verify .lnk file path exists
+#          Test shortcut manually
+#          Check file permissions
+#          Ensure path uses double backslashes
+
+# Issue: Multiple profiles loading
+# Solution: Check loaded_apps.yml for duplicates
+#          Unload unwanted profiles via GUI
+#          Verify unique profile names
+
+# Issue: Wrong window detected
+# Solution: Make keywords more specific
+#          Remove generic keywords
+#          Add domain-specific keywords

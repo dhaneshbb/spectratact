@@ -1,0 +1,11 @@
+# SpectraTact Runtime Dependencies
+# Install with: pip install -r requirements.txt
+
+# System and process utilities for window management and process monitoring
+psutil>=5.8.0
+
+# Windows API access for window manipulation and system integration
+pywin32>=227
+
+# YAML configuration file parsing
+PyYAML>=6.0
