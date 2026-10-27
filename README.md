@@ -15,6 +15,18 @@
 
 <p align="center">Desktop application manager with intelligent window orchestration for Windows.</p>
 
+<p align="center">
+  <img src="docs/media/thumbnails/1.png" alt="SpectraTact preview 1">
+</p>
+
+<p align="center">
+  <img src="docs/media/thumbnails/2.png" alt="SpectraTact preview 2">
+</p>
+
+<p align="center">
+  <img src="docs/media/thumbnails/3.png" alt="SpectraTact preview 3">
+</p>
+
 ![Demo](docs/gif/demo.gif)
 
 ## Overview
